@@ -20,6 +20,7 @@ namespace BlogApp.WebUI
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseDefaultServiceProvider(o=> o.ValidateScopes = false)//Bu kısmnı sonradan  ekledi yoksa hata alıyor. Migrationns içerisinde
                 .Build();
     }
 }

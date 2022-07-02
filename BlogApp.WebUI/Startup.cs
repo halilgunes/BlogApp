@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using BlogApp.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
+using BlogApp.Data.Abstract;
 
 namespace BlogApp.WebUI
 {
@@ -26,6 +27,8 @@ namespace BlogApp.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("BlogApp.WebUI")));
+            services.AddTransient<IBlogRepository, EfBlogRepository>();
+            services.AddTransient<ICategoryRepository, EfCategoryRepository>();
             services.AddMvc();
         }
 
@@ -45,7 +48,7 @@ namespace BlogApp.WebUI
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //SeedData.Seed(app);
+            SeedData.Seed(app);
         }
     }
 }
