@@ -28,20 +28,41 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult AddOrUpdate(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return View(new Category());
+            }
+            else
+            {
+                return View(repository.GetById(id.Value));
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(Category entity)
+        public IActionResult AddOrUpdate(Category category)
         {
             if (ModelState.IsValid)
             {
-                repository.AddCategory(entity);
-                return RedirectToAction((nameof(List)));
+                repository.SaveCategory(category);
+                TempData["message"] = $"{category.Name} kategorisi güncellendi";
+                return RedirectToAction(nameof(CategoryController.List));
             }
-            return View(entity);
+            return View(category);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public IActionResult DeleteCategory(int id)
+        {
+            //repository.DeleteCategory(id);
+            return RedirectToAction(nameof(CategoryController.List));
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int CategoryId)
+        {
+            return View(repository.GetById(CategoryId));
         }
     }
 }

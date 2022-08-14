@@ -13,3 +13,4 @@ D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp2.0\BlogApp.Entity.AssemblyInfo.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp2.0\BlogApp.Entity.dll
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp2.0\BlogApp.Entity.pdb
+D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp2.0\BlogApp.Entity.csprojAssemblyReference.cache

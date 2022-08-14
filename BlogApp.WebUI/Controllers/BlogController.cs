@@ -31,24 +31,42 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult AddOrUpdate(int? id)
         {
-            ViewBag.Categories = new SelectList(categoryRepository.GetAll(),"CategoryId","Name");
-            return View();
+            ViewBag.Categories = new SelectList(categoryRepository.GetAll(), "CategoryId", "Name");
+            if (!id.HasValue)
+            {
+                return View(new Blog());
+            }
+            else
+            {
+                return View(blogRepository.GetById(id.Value));
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(Blog entity)
+        public IActionResult AddOrUpdate(Blog entity)
         {
-            entity.Date = DateTime.Now;
-                 
             if (ModelState.IsValid)
             {
-                blogRepository.AddBlog(entity);
-                return RedirectToAction(nameof(List));
+                blogRepository.SaveBlog(entity);
+                TempData["message"] = $"{entity.BlogId} nolu blog kaydedildi";
+                return RedirectToAction(nameof(BlogController.List));
             }
             return View(entity);
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            return View(blogRepository.GetById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Blog blog)
+        {
+            blogRepository.DeleteBlog(blog.BlogId);
+            return RedirectToAction(nameof(BlogController.List));
+        }
     }
 }

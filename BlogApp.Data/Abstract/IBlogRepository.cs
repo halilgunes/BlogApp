@@ -13,5 +13,6 @@ namespace BlogApp.Data.Abstract
         void AddBlog(Blog blog);
         void UpdateBlog(Blog blog);
         void DeleteBlog(int blogId);
+        void SaveBlog(Blog blog);
     }
 }

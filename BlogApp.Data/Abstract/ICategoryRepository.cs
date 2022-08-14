@@ -13,5 +13,7 @@ namespace BlogApp.Data.Abstract
         void AddCategory(Category category);
         void UpdateCategory(Category category);
         void DeleteCategory(int categoryId);
+
+        void SaveCategory(Category category);
     }
 }

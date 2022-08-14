@@ -2,12 +2,15 @@
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_Layout</title>
     <link href="~/css/bundle.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aspnet-signalr/1.0.27/signalr.min.js" integrity="sha512-a+73ErrZPjhqOu0qbW1QLsenEF4pvDjmnd+Ws6hkDyJlrwAigOQAxQhIT+fPNFWScUvtJQvn+G535TT2C6/G4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -37,9 +40,18 @@
         </div>
     </nav>
     <div id="main">
+        <div class="container">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["message"]
+                </div>
+            }
+        </div>
         @RenderBody()
     </div>
 
     <script src="~/js/bundle.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

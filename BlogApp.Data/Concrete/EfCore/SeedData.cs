@@ -6,12 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogApp.Data.Concrete.EfCore
 {
     public static class SeedData
     {
-        public static void Seed(IApplicationBuilder app)
+        public static async void Seed(IApplicationBuilder app)
         {
             BlogContext context = app.ApplicationServices.GetRequiredService<BlogContext>();
 
@@ -25,7 +26,7 @@ namespace BlogApp.Data.Concrete.EfCore
                     new Category() { Name = "Category 3" }
                 );
 
-                context.SaveChanges();
+               await context.SaveChangesAsync();
             }
 
 
@@ -39,8 +40,9 @@ namespace BlogApp.Data.Concrete.EfCore
                     new Blog() {  Title="Blog title 4", Description="Blog Description", Body="Blog Body 1", Image="4.jpeg", Date=DateTime.Now.AddDays(-9), isApproved=true, CategoryId=3}                                       
                 );
 
-                context.SaveChanges();
+               await context.SaveChangesAsync();
             }
+
         }
     }
 }
