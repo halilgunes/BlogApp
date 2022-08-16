@@ -7,6 +7,7 @@ using BlogApp.Data.Concrete.EfCore;
 using BlogApp.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.WebUI.Controllers
 {
@@ -20,16 +21,19 @@ namespace BlogApp.WebUI.Controllers
             categoryRepository = _catRepo;
         }
 
-        public IActionResult Index(int? id)
+        public IActionResult Index(int? id, string q)
         {
-            if (!id.HasValue)
+            var query = blogRepository.GetAll().Where(n => n.isApproved);
+            if (id.HasValue)
             {
-                return View(blogRepository.GetAll().Where(n => n.isApproved).OrderByDescending(x => x.Date).ToList());
+                query = query.Where(n => n.CategoryId == id.Value);
             }
-            else
+            if (!string.IsNullOrWhiteSpace(q))
             {
-                return View(blogRepository.GetAll().Where(n => n.isApproved && n.CategoryId == id.Value).OrderByDescending(x => x.Date).ToList());
+                query = query.Where(n => EF.Functions.Like(n.Title, "%" + q + "%") || EF.Functions.Like(n.Description, "%" + q + "%") || EF.Functions.Like(n.Body, "%" + q + "%"));
             }
+
+            return View(query.OrderByDescending(x => x.Date).ToList());
         }
 
         public IActionResult List()
