@@ -41,6 +41,7 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddOrUpdate(Category category)
         {
             if (ModelState.IsValid)
@@ -53,9 +54,10 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteCategory(int id)
         {
-            //repository.DeleteCategory(id);
+            repository.DeleteCategory(id);
             return RedirectToAction(nameof(CategoryController.List));
         }
 

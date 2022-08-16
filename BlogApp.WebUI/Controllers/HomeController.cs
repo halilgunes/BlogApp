@@ -15,9 +15,17 @@ namespace BlogApp.WebUI.Controllers
             this.blogRepository = blogRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            return View(blogRepository.GetAll());
+            if (id.HasValue)
+            {
+                return View(blogRepository.GetAll().Where(n => n.isApproved && n.IsHome && n.CategoryId == id.Value).ToList());
+            }
+            else
+            {
+                return View(blogRepository.GetAll().Where(n => n.isApproved && n.IsHome).ToList());
+            }
+
         }
 
         public IActionResult List()

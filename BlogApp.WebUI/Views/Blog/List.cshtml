@@ -2,12 +2,10 @@
 @model IEnumerable<Blog>
 @{
     ViewData["Title"] = "List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="container mt-3">
-    <h2>Blog List</h2>
-    <hr />
     <div class="row">
         <div class="col">
             @if (Model.Any())
@@ -19,29 +17,36 @@
                             <th>Image</th>
                             <th>Title</th>
                             <th>Date</th>
-                            <th>IsApproved</th>
+                            <th>Is Approved</th>
+                            <th>Is Home</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.BlogId</td>
-                                <td><img src="~/img/@item.Image" width="100" /> </td>
-                                <td>@item.Title</td>
-                                <td>@item.Date</td>
-                                <td style="text-align:center">
-                                    @if (item.isApproved)
-                                    {
-                                        <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
-                                    }
-                                </td>
-                                <td>
-                                    <a class="btn btn-primary btn-sm" asp-controller="Blog" asp-action="AddOrUpdate" asp-route-id="@item.BlogId"> Edit </a>
-                                    <a class="btn btn-danger btn-sm" asp-controller="Blog" asp-action="Delete" asp-route-id="@item.BlogId"> Delete </a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>@item.BlogId</td>
+                            <td><img src="~/img/@item.Image" width="100" /> </td>
+                            <td>@item.Title</td>
+                            <td>@item.Date</td>
+                            <td style="text-align:center">
+                                @if (item.isApproved)
+                                {
+                                    <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
+                                }
+                            </td>
+                            <td style="text-align:center">
+                                @if (item.IsHome)
+                                {
+                                    <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
+                                }
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" asp-controller="Blog" asp-action="AddOrUpdate" asp-route-id="@item.BlogId"> Edit </a>
+                                <a class="btn btn-danger btn-sm" asp-controller="Blog" asp-action="Delete" asp-route-id="@item.BlogId"> Delete </a>
+                            </td>
+                        </tr>
                         }
 
                     </tbody>

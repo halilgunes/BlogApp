@@ -20,9 +20,16 @@ namespace BlogApp.WebUI.Controllers
             categoryRepository = _catRepo;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return View(blogRepository.GetAll().Where(n => n.isApproved).OrderByDescending(x => x.Date).ToList());
+            }
+            else
+            {
+                return View(blogRepository.GetAll().Where(n => n.isApproved && n.CategoryId == id.Value).OrderByDescending(x => x.Date).ToList());
+            }
         }
 
         public IActionResult List()
@@ -45,6 +52,7 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddOrUpdate(Blog entity)
         {
             if (ModelState.IsValid)
@@ -63,10 +71,16 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(Blog blog)
         {
             blogRepository.DeleteBlog(blog.BlogId);
             return RedirectToAction(nameof(BlogController.List));
+        }
+
+        public IActionResult Details(int id)
+        {
+            return View(blogRepository.GetById(id));
         }
     }
 }

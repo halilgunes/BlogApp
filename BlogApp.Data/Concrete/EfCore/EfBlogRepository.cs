@@ -66,6 +66,9 @@ namespace BlogApp.Data.Concrete.EfCore
                 entity.Title = blog.Title;
                 entity.Description = blog.Description;
                 entity.Image = blog.Image;
+                entity.IsHome = blog.IsHome;
+                entity.isApproved = blog.isApproved;
+                entity.Date = DateTime.Now;
                 context.Blogs.Update(entity);
                 context.SaveChanges();
             }

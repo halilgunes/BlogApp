@@ -20,5 +20,10 @@ namespace BlogApp.Entity
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        /// <summary>
+        /// Ana sayfada olması isteniyorsa true değilse false
+        /// </summary>
+        public bool IsHome { get; set; }    
     }
 }
