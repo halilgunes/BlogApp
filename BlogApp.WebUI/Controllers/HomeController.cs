@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Data.Abstract;
+using BlogApp.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApp.WebUI.Controllers
@@ -15,17 +16,14 @@ namespace BlogApp.WebUI.Controllers
             this.blogRepository = blogRepository;
         }
 
-        public IActionResult Index(int? id)
+        public IActionResult Index()
         {
-            if (id.HasValue)
-            {
-                return View(blogRepository.GetAll().Where(n => n.isApproved && n.IsHome && n.CategoryId == id.Value).ToList());
-            }
-            else
-            {
-                return View(blogRepository.GetAll().Where(n => n.isApproved && n.IsHome).ToList());
-            }
+            HomeBlogModel model = new HomeBlogModel();
 
+            model.HomeBlogs = blogRepository.GetAll().Where(n => n.isApproved && n.IsHome).ToList();
+            model.SliderBlogs = blogRepository.GetAll().Where(n => n.isApproved && n.IsSlider).ToList();
+
+            return View(model);
         }
 
         public IActionResult List()

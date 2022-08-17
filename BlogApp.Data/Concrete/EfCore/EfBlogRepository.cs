@@ -69,6 +69,7 @@ namespace BlogApp.Data.Concrete.EfCore
                 entity.IsHome = blog.IsHome;
                 entity.isApproved = blog.isApproved;
                 entity.Date = DateTime.Now;
+                entity.IsSlider = blog.IsSlider;
                 context.Blogs.Update(entity);
                 context.SaveChanges();
             }

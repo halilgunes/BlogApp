@@ -24,6 +24,11 @@ namespace BlogApp.Entity
         /// <summary>
         /// Ana sayfada olması isteniyorsa true değilse false
         /// </summary>
-        public bool IsHome { get; set; }    
+        public bool IsHome { get; set; }
+        
+        /// <summary>
+        /// Slider'da görünecekse truedeğilse false
+        /// </summary>
+        public bool IsSlider { get; set; }
     }
 }

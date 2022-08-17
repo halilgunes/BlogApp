@@ -19,6 +19,7 @@
                             <th>Date</th>
                             <th>Is Approved</th>
                             <th>Is Home</th>
+                            <th>Is Slider</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -38,6 +39,12 @@
                             </td>
                             <td style="text-align:center">
                                 @if (item.IsHome)
+                                {
+                                    <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
+                                }
+                            </td>
+                            <td style="text-align:center">
+                                @if (item.IsSlider)
                                 {
                                     <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
                                 }
