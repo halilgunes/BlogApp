@@ -7,6 +7,7 @@
   <ItemGroup>
     <Content Remove="libman.json" />
     <Content Remove="Views\Category\Create.cshtml" />
+    <Content Remove="wwwroot\img\pexels-aleksandar-pasaric-929606.jpg_02ff346-65" />
   </ItemGroup>
 
   <ItemGroup>

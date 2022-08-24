@@ -6,6 +6,12 @@
 }
 
 <div class="container mt-3">
+    <h2>Blog List</h2>
+    <hr />
+    <div>
+        <a class="btn btn-primary" href="/Blog/Create">Create Blog</a>
+    </div>
+    <hr />
     <div class="row">
         <div class="col">
             @if (Model.Any())
@@ -26,34 +32,34 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>@item.BlogId</td>
-                            <td><img src="~/img/@item.Image" width="100" /> </td>
-                            <td>@item.Title</td>
-                            <td>@item.Date</td>
-                            <td style="text-align:center">
-                                @if (item.isApproved)
-                                {
-                                    <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
-                                }
-                            </td>
-                            <td style="text-align:center">
-                                @if (item.IsHome)
-                                {
-                                    <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
-                                }
-                            </td>
-                            <td style="text-align:center">
-                                @if (item.IsSlider)
-                                {
-                                    <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
-                                }
-                            </td>
-                            <td>
-                                <a class="btn btn-primary btn-sm" asp-controller="Blog" asp-action="AddOrUpdate" asp-route-id="@item.BlogId"> Edit </a>
-                                <a class="btn btn-danger btn-sm" asp-controller="Blog" asp-action="Delete" asp-route-id="@item.BlogId"> Delete </a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>@item.BlogId</td>
+                                <td><img src="~/img/@item.Image" width="100" /> </td>
+                                <td>@item.Title</td>
+                                <td>@item.Date</td>
+                                <td style="text-align:center">
+                                    @if (item.isApproved)
+                                    {
+                                        <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
+                                    }
+                                </td>
+                                <td style="text-align:center">
+                                    @if (item.IsHome)
+                                    {
+                                        <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
+                                    }
+                                </td>
+                                <td style="text-align:center">
+                                    @if (item.IsSlider)
+                                    {
+                                        <i class="fa fa-check-square-o fa-align-center" style="font-size:28px;color:green;text-align:center"></i>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Blog" asp-action="Edit" asp-route-id="@item.BlogId"> Edit </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Blog" asp-action="Delete" asp-route-id="@item.BlogId"> Delete </a>
+                                </td>
+                            </tr>
                         }
 
                     </tbody>
@@ -67,6 +73,4 @@
         </div>
     </div>
 </div>
-
-
 

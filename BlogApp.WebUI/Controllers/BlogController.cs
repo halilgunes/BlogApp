@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
 using BlogApp.Entity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -42,25 +44,52 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddOrUpdate(int? id)
+        public IActionResult Create()
         {
             ViewBag.Categories = new SelectList(categoryRepository.GetAll(), "CategoryId", "Name");
-            if (!id.HasValue)
-            {
-                return View(new Blog());
-            }
-            else
-            {
-                return View(blogRepository.GetById(id.Value));
-            }
+            return View(new Blog());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddOrUpdate(Blog entity)
+        public IActionResult Create(Blog entity)
         {
             if (ModelState.IsValid)
             {
+                blogRepository.SaveBlog(entity);
+                TempData["message"] = $"{entity.BlogId} nolu blog kaydedildi";
+                return RedirectToAction(nameof(BlogController.List));
+            }
+            return View(entity);
+        }
+
+
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Categories = new SelectList(categoryRepository.GetAll(), "CategoryId", "Name");
+            return View(blogRepository.GetById(id));
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Blog entity, IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                if (file.Length <= 0)
+                {
+                    return View(entity);
+                }
+                string fileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}_{Guid.NewGuid().ToString().Substring(1, 10)}.{Path.GetExtension(file.FileName)}";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                entity.Image = fileName;
                 blogRepository.SaveBlog(entity);
                 TempData["message"] = $"{entity.BlogId} nolu blog kaydedildi";
                 return RedirectToAction(nameof(BlogController.List));
