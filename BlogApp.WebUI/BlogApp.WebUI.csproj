@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\summernote\**" />
+    <Compile Remove="wwwroot\lib\tinymce\**" />
+    <Content Remove="wwwroot\lib\summernote\**" />
+    <Content Remove="wwwroot\lib\tinymce\**" />
+    <EmbeddedResource Remove="wwwroot\lib\summernote\**" />
+    <EmbeddedResource Remove="wwwroot\lib\tinymce\**" />
+    <None Remove="wwwroot\lib\summernote\**" />
+    <None Remove="wwwroot\lib\tinymce\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="libman.json" />
     <Content Remove="Views\Category\Create.cshtml" />
     <Content Remove="wwwroot\img\pexels-aleksandar-pasaric-929606.jpg_02ff346-65" />

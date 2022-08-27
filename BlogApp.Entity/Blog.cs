@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Web.Mvc;
 
 namespace BlogApp.Entity
 {
@@ -11,6 +13,10 @@ namespace BlogApp.Entity
 
         public string Title { get; set; }
         public string Description { get; set; }
+        
+        [AllowHtml]
+        [UIHint("tinymce_full_compressed")]
+        [Display(Name = "Blog Detayı")]
         public string Body { get; set; }
         public string Image { get; set; }
 

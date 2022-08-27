@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aspnet-signalr/1.0.27/signalr.min.js" integrity="sha512-a+73ErrZPjhqOu0qbW1QLsenEF4pvDjmnd+Ws6hkDyJlrwAigOQAxQhIT+fPNFWScUvtJQvn+G535TT2C6/G4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -50,18 +51,10 @@
     </div>
 
     <script src="~/js/bundle.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.navbar-nav > li').each(function (index) {
-                $(this).on('click', function () {
-                    console.log(index + ": " + $(this).text());
-                    $('.navbar-nav > li').removeClass('active');
-                    //$(this).addClass('active');
-                    //TODO: Burada sayfa postback olduğu için kaybediyor aktif menüyü.
-                });
-            });
-        })
-    </script>
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
     @RenderSection("Scripts", required: false)
 
 </body>

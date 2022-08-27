@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Web;
 
 namespace BlogApp.Data.Concrete.EfCore
 {
@@ -53,7 +55,9 @@ namespace BlogApp.Data.Concrete.EfCore
 
         public Blog GetById(int blogId)
         {
-            return context.Blogs.FirstOrDefault(b => b.BlogId == blogId);
+            Blog ret = context.Blogs.FirstOrDefault(b => b.BlogId == blogId);
+           // ret.Body = HttpUtility.HtmlEncode(ret.Body);
+            return ret;
         }
 
         public void UpdateBlog(Blog blog)
@@ -65,11 +69,15 @@ namespace BlogApp.Data.Concrete.EfCore
                 entity.CategoryId = blog.CategoryId;
                 entity.Title = blog.Title;
                 entity.Description = blog.Description;
-                entity.Image = blog.Image;
+                if (!string.IsNullOrWhiteSpace(blog.Image))
+                {
+                    entity.Image = blog.Image; 
+                }
                 entity.IsHome = blog.IsHome;
                 entity.isApproved = blog.isApproved;
                 entity.Date = DateTime.Now;
                 entity.IsSlider = blog.IsSlider;
+                entity.Body = blog.Body;
                 context.Blogs.Update(entity);
                 context.SaveChanges();
             }

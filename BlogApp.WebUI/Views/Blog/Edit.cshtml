@@ -18,11 +18,11 @@
         </div>
         <div class="form-group">
             <label for="Body">Body</label>
-            <textarea asp-for="Body" class="form-control" id="body"></textarea>
+            <textarea asp-for="Body" class="form-control editorHtml" id="body" name="body"></textarea>
         </div>
         <div class="form-group">
-            <img src="~/img/@Model.Image" width="120"/>
-            <input type="file" id="file" name="file" class="form-control"/>
+            <img src="~/img/@Model.Image" width="120" />
+            <input type="file" id="file" name="file" class="form-control" />
         </div>
         <div class="form-group">
             <label class="form-check-label" for="isApproved">
@@ -52,6 +52,19 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-
 </div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initialize Editor
+            $('#body').summernote({
+                height: 300, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: true // set focus to editable area after initializing summernote
+            });
+        });
+
+    </script>
+}
 

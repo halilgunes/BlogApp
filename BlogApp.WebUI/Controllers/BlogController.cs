@@ -79,17 +79,16 @@ namespace BlogApp.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (file.Length <= 0)
+                if (file != null && file.Length > 0)
                 {
-                    return View(entity);
+                    string fileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}_{Guid.NewGuid().ToString().Substring(1, 10)}.{Path.GetExtension(file.FileName)}";
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
+                    using (Stream stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    entity.Image = fileName;
                 }
-                string fileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}_{Guid.NewGuid().ToString().Substring(1, 10)}.{Path.GetExtension(file.FileName)}";
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
-                using (Stream stream = new FileStream(path, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-                entity.Image = fileName;
                 blogRepository.SaveBlog(entity);
                 TempData["message"] = $"{entity.BlogId} nolu blog kaydedildi";
                 return RedirectToAction(nameof(BlogController.List));
