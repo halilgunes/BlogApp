@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Blog>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-ride="carousel">
     <ol class="carousel-indicators">
         @for (int i = 0; i < Model.Count(); i++)
         {
@@ -20,8 +20,8 @@
             <div class="carousel-item @(index == 0 ? "active" : "")">
                 <img class="d-block w-100" src="~/img/@item.Image" alt="@item.Title">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>@item.Title</h5>
-                    <p>@item.Description</p>
+                    <h5 class="bg-primary">@item.Title</h5>
+                    <p class="bg-primary">@item.Description</p>
                 </div>
             </div>
             index++;

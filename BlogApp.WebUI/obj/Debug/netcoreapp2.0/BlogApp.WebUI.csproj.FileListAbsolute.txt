@@ -36,3 +36,4 @@ D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp2.0\BlogApp.WebUI.csproj.CopyComplete
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp2.0\BlogApp.WebUI.dll
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp2.0\BlogApp.WebUI.pdb
+D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\bin\Debug\netcoreapp2.0\libman.json
