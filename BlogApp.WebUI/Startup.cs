@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using BlogApp.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
 using BlogApp.Data.Abstract;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
 
 namespace BlogApp.WebUI
 {
@@ -27,20 +29,43 @@ namespace BlogApp.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("BlogApp.WebUI")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("BlogApp.WebUI")));
             services.AddTransient<IBlogRepository, EfBlogRepository>();
             services.AddTransient<ICategoryRepository, EfCategoryRepository>();
-            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false); ;
+            
+            //Identiy bilgileri dbde tutulacak,kullanıcının email adresi unique olacak
+            services.AddIdentity<IdentityUser, IdentityRole>(opt =>
+            {
+                opt.Password.RequireUppercase = false;
+
+                opt.Password.RequireNonAlphanumeric = false;
+
+                opt.Password.RequiredLength = 4;
+
+                opt.User.RequireUniqueEmail = true;
+
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseRouting();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -48,7 +73,14 @@ namespace BlogApp.WebUI
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            app.UseAuthentication();//authentice olmalı kullanıcı diyoruz bu satırla.
+            app.UseAuthorization();
+
+
             SeedData.Seed(app);
+
+            AppDbContext contextAdC = app.ApplicationServices.GetRequiredService<AppDbContext>();
+            contextAdC.Database.Migrate();
         }
     }
 }

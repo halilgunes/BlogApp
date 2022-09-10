@@ -1,0 +1,13 @@
+﻿@*Sadece onaylıları gösteriyor*@
+@model IEnumerable<Blog>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            @await Component.InvokeAsync("CategoryMenu")
+        </div>
+        <div class="col-md-9">
+            @Html.Partial("_BlogList", Model)
+        </div>
+    </div>
+</div>
+
