@@ -21,19 +21,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" asp-action="Index" asp-controller="Home">Karalamalar</a>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" asp-action="Index" asp-controller="Home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/list">Blogs <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/category/list">Categories <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/AdminBlog/List">List <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+            </div>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                    <span class="text text-white">UserName : @Context.User.Identity.Name</span>
+                }
                 @Html.Partial("_SearchBox")
             </div>
         </div>

@@ -8,21 +8,24 @@ using BlogApp.Data.Concrete.EfCore;
 using BlogApp.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.WebUI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AdminBlogController : Controller
     {
         IBlogRepository blogRepository;
         ICategoryRepository categoryRepository;
-        public AdminBlogController(IBlogRepository _repo, ICategoryRepository _catRepo)
+        private readonly UserManager<IdentityUser> userManager;
+        public AdminBlogController(IBlogRepository _repo, ICategoryRepository _catRepo, UserManager<IdentityUser> userManager )
         {
             blogRepository = _repo;
             categoryRepository = _catRepo;
+            this.userManager = userManager;
         }
 
        
@@ -94,6 +97,7 @@ namespace BlogApp.WebUI.Controllers
             return RedirectToAction(nameof(AdminBlogController.List));
         }
 
+        [HttpGet]
         public IActionResult List()
         {
             return View(blogRepository.GetAll());

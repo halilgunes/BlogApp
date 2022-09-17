@@ -41,7 +41,7 @@ namespace BlogApp.WebUI.Controllers
             {
                 return View();
             }
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction(nameof(AdminBlogController.List), "AdminBlog");
         }
     }
 }

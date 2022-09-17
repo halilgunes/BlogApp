@@ -65,6 +65,8 @@ namespace BlogApp.WebUI
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();//authentice olmalı kullanıcı diyoruz bu satırla.
+            app.UseAuthorization();
 
             app.UseMvc(routes =>
             {
@@ -72,15 +74,11 @@ namespace BlogApp.WebUI
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.UseAuthentication();//authentice olmalı kullanıcı diyoruz bu satırla.
-            app.UseAuthorization();
-
+       
 
             SeedData.Seed(app);
 
-            AppDbContext contextAdC = app.ApplicationServices.GetRequiredService<AppDbContext>();
-            contextAdC.Database.Migrate();
+           
         }
     }
 }

@@ -29,8 +29,25 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-action="Index" asp-controller="Blog">Blogs <span class="sr-only">(current)</span></a>
                     </li>
-                </ul>
-              @Html.Partial("_SearchBox")
+                    @if (!Context.User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Admin</a>
+                        </li>
+                    }
+                    else
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminBlog/List">List <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminBlog/Index">Index <span class="sr-only">(current)</span></a>
+                    </li>
+                    }
+                </ul>             
+            </div>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                @Html.Partial("_SearchBox")
             </div>
         </div>
     </nav>

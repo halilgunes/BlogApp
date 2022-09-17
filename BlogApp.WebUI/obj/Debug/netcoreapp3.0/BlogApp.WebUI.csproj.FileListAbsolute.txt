@@ -197,7 +197,6 @@ D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\AdminBlog\AddOrUpdate.cshtml.g.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\AdminBlog\Create.cshtml.g.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\AdminBlog\Edit.cshtml.g.cs
-D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\AdminBlog\Index.cshtml.g.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\AdminBlog\List.cshtml.g.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Blog\Details.cshtml.g.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Blog\Index.cshtml.g.cs
