@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Data.Abstract;
 using BlogApp.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApp.WebUI.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         ICategoryRepository repository;

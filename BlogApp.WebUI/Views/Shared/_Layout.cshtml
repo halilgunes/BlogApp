@@ -24,29 +24,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active ">
-                        <a class="nav-link" asp-action="Index" asp-controller="Home">Home</a>
+                        <a class="nav-link" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="Index" asp-controller="Blog">Blogs <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-action="Index" asp-controller="Blog">Bloglar <span class="sr-only">(current)</span></a>
                     </li>
                     @if (!Context.User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Admin</a>
+                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Admin Girişi</a>
                         </li>
                     }
                     else
                     {
-                    <li class="nav-item">
-                        <a class="nav-link" href="/AdminBlog/List">List <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/AdminBlog/Index">Index <span class="sr-only">(current)</span></a>
-                    </li>
+                        @Html.Partial("AdminNavBarItems");
                     }
-                </ul>             
+                </ul>
             </div>
             <div class="collapse navbar-collapse d-flex justify-content-end">
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                    <span class="text text-white">UserName : @Context.User.Identity.Name</span>
+                }
                 @Html.Partial("_SearchBox")
             </div>
         </div>
