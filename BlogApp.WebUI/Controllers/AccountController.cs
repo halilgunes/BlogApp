@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogApp.WebUI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BlogApp.WebUI.Controllers
 {
@@ -26,22 +27,30 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string userEmail, string userPassword)
+        public async Task<IActionResult> Login(LoginModel loginModel)
         {
-            var userInfo = await userManager.FindByEmailAsync(email: userEmail);
-            if (userInfo == null)
+            //if (string.IsNullOrWhiteSpace(loginModel.Email))
+            //{
+            //    ModelState.AddModelError(nameof(loginModel.Email), "Kullanıcı adı alanı boş geçilemez");
+            //}
+            if (ModelState.IsValid)
             {
-                return View();
-            }
+                var userInfo = await userManager.FindByEmailAsync(email: loginModel.Email);
+                if (userInfo == null)
+                {
+                    return View();
+                }
 
-            //locoutOnFailure : 3 kez hatalı girince locklansın mı?
-            //isPersistent : Browser kapatıldığında kalsın mı sigin işlemi yoksa tekrar mı login olsun. (cookie süresi 60 yada 120 gün olabilir)
-            var signInResult = await signInManager.PasswordSignInAsync(userInfo, password: userPassword, isPersistent: true, lockoutOnFailure: false);
-            if (signInResult == null || !signInResult.Succeeded)
-            {
-                return View();
-            }
-            return RedirectToAction(nameof(AdminBlogController.List), "AdminBlog");
+				//locoutOnFailure : 3 kez hatalı girince locklansın mı?
+				//isPersistent : Browser kapatıldığında kalsın mı sigin işlemi yoksa tekrar mı login olsun. (cookie süresi 60 yada 120 gün olabilir)
+				var signInResult = await signInManager.PasswordSignInAsync(userInfo, password: loginModel.Password, isPersistent: true, lockoutOnFailure: false);
+				if (signInResult == null || !signInResult.Succeeded)
+				{
+					return View();
+				}
+				return RedirectToAction(nameof(AdminBlogController.List), "AdminBlog");
+			}
+            return View();
         }
     }
 }

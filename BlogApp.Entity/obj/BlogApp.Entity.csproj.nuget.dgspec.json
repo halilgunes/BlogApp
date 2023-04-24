@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Calismalar\\!!UdemySadikTuranMvcNetCoreCourse\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj": {}
+    "D:\\Projects\\Blog\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj": {}
   },
   "projects": {
-    "D:\\Calismalar\\!!UdemySadikTuranMvcNetCoreCourse\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj": {
+    "D:\\Projects\\Blog\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Calismalar\\!!UdemySadikTuranMvcNetCoreCourse\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj",
+        "projectUniqueName": "D:\\Projects\\Blog\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj",
         "projectName": "BlogApp.Entity",
-        "projectPath": "D:\\Calismalar\\!!UdemySadikTuranMvcNetCoreCourse\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj",
+        "projectPath": "D:\\Projects\\Blog\\BlogApp\\BlogApp.Entity\\BlogApp.Entity.csproj",
         "packagesPath": "C:\\Users\\halil\\.nuget\\packages\\",
-        "outputPath": "D:\\Calismalar\\!!UdemySadikTuranMvcNetCoreCourse\\BlogApp\\BlogApp.Entity\\obj\\",
+        "outputPath": "D:\\Projects\\Blog\\BlogApp\\BlogApp.Entity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\halil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -25,10 +22,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Deneme\\OurPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {}
           }
         },
@@ -40,6 +39,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
@@ -64,16 +64,31 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

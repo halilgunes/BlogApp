@@ -4,7 +4,8 @@
     "inputFiles": [
       "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
       "wwwroot/lib/font-awesome/css/font-awesome.css",
-      "wwwroot/css/style.css"
+      "wwwroot/css/style.css",
+      "wwwroot/css/login.css"
     ]
   },
   {

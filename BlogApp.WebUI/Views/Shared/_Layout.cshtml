@@ -12,6 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aspnet-signalr/1.0.27/signalr.min.js" integrity="sha512-a+73ErrZPjhqOu0qbW1QLsenEF4pvDjmnd+Ws6hkDyJlrwAigOQAxQhIT+fPNFWScUvtJQvn+G535TT2C6/G4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -19,11 +22,10 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" asp-action="Index" asp-controller="Home">Karalamalar</a>
-
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">KARALAMALAR</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active ">
+                    <li class="nav-item active">
                         <a class="nav-link" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
@@ -41,7 +43,7 @@
                     }
                 </ul>
             </div>
-            <div class="collapse navbar-collapse d-flex justify-content-end">
+            <div class="collapse navbar-collapse d-flex text-center">
                 @if (Context.User.Identity.IsAuthenticated)
                 {
                     <span class="text text-white">UserName : @Context.User.Identity.Name</span>

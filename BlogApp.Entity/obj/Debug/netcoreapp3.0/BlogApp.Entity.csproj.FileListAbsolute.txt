@@ -5,3 +5,13 @@ D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.AssemblyInfo.cs
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.dll
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.pdb
+D:\Projects\Blog\BlogApp\BlogApp.Entity\bin\Debug\netcoreapp3.0\BlogApp.Entity.deps.json
+D:\Projects\Blog\BlogApp\BlogApp.Entity\bin\Debug\netcoreapp3.0\BlogApp.Entity.dll
+D:\Projects\Blog\BlogApp\BlogApp.Entity\bin\Debug\netcoreapp3.0\BlogApp.Entity.pdb
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.csproj.AssemblyReference.cache
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.AssemblyInfoInputs.cache
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.AssemblyInfo.cs
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.csproj.CoreCompileInputs.cache
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.dll
+D:\Projects\Blog\BlogApp\BlogApp.Entity\obj\Debug\netcoreapp3.0\BlogApp.Entity.pdb

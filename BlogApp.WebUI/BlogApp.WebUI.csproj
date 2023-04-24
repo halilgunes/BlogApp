@@ -7,6 +7,8 @@
   <ItemGroup>
     <Content Remove="Views\AdminBlog\Details.cshtml" />
     <Content Remove="Views\AdminBlog\Index.cshtml" />
+    <Content Remove="wwwroot\css\login2.css" />
+    <Content Remove="wwwroot\js\login2.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,3 +9,16 @@ D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Data\obj\Debug\n
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.csproj.CopyComplete
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.dll
 D:\Calismalar\!!UdemySadikTuranMvcNetCoreCourse\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.pdb
+D:\Projects\Blog\BlogApp\BlogApp.Data\bin\Debug\netcoreapp3.0\BlogApp.Data.deps.json
+D:\Projects\Blog\BlogApp\BlogApp.Data\bin\Debug\netcoreapp3.0\BlogApp.Data.dll
+D:\Projects\Blog\BlogApp\BlogApp.Data\bin\Debug\netcoreapp3.0\BlogApp.Data.pdb
+D:\Projects\Blog\BlogApp\BlogApp.Data\bin\Debug\netcoreapp3.0\BlogApp.Entity.dll
+D:\Projects\Blog\BlogApp\BlogApp.Data\bin\Debug\netcoreapp3.0\BlogApp.Entity.pdb
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.csproj.AssemblyReference.cache
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.AssemblyInfoInputs.cache
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.AssemblyInfo.cs
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.csproj.CoreCompileInputs.cache
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.csproj.CopyComplete
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.dll
+D:\Projects\Blog\BlogApp\BlogApp.Data\obj\Debug\netcoreapp3.0\BlogApp.Data.pdb
